@@ -6,30 +6,38 @@ export default function BackgroundEffects() {
       {/* High-contrast pitch dark background baseline */}
       <div className="absolute inset-0 bg-[#040406]" />
 
-      {/* Subtle, soft grid lines */}
-      <div className="absolute inset-0 cyber-grid-bg opacity-35" />
+      {/* Cyber subtle grid overlay */}
+      <div className="absolute inset-0 cyber-grid-bg opacity-45" />
 
-      {/* Top gentle ambient glow: Soft Rose/Pink */}
+      {/* Top radiant ambient glow: Vibrant Neon Pink */}
       <div 
-        className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full blur-[180px] opacity-[0.08]"
+        className="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[700px] h-[450px] rounded-full blur-[160px] opacity-[0.16]"
         style={{
-          background: 'radial-gradient(circle, #FF2A85 0%, #FF1744 50%, transparent 80%)',
+          background: 'radial-gradient(circle, #FF2A85 0%, #FF1744 55%, transparent 75%)',
         }}
       />
 
-      {/* Subtle right accent glow */}
+      {/* Mid-right ambient accent glow: Crimson Rose */}
       <div 
-        className="absolute top-[35%] right-[-10%] w-[450px] h-[450px] rounded-full blur-[180px] opacity-[0.06]"
+        className="absolute top-[30%] right-[-5%] w-[550px] h-[550px] rounded-full blur-[170px] opacity-[0.14]"
         style={{
-          background: 'radial-gradient(circle, #FF1744 0%, #FF2A85 50%, transparent 80%)',
+          background: 'radial-gradient(circle, #FF1744 0%, #FF2A85 50%, transparent 75%)',
+        }}
+      />
+
+      {/* Mid-left ambient accent glow */}
+      <div 
+        className="absolute top-[60%] left-[-5%] w-[500px] h-[500px] rounded-full blur-[160px] opacity-[0.12]"
+        style={{
+          background: 'radial-gradient(circle, #FF2A85 0%, #E11D48 50%, transparent 75%)',
         }}
       />
 
       {/* Soft footer glow */}
       <div 
-        className="absolute bottom-[-15%] left-1/2 -translate-x-1/2 w-[700px] h-[350px] rounded-full blur-[180px] opacity-[0.07]"
+        className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[350px] rounded-full blur-[160px] opacity-[0.15]"
         style={{
-          background: 'radial-gradient(circle, #FF2A85 0%, transparent 75%)',
+          background: 'radial-gradient(circle, #FF1744 0%, #FF2A85 50%, transparent 75%)',
         }}
       />
     </div>

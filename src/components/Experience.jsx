@@ -29,7 +29,7 @@ export default function Experience() {
             <span>CAREER & ACADEMICS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Experience & <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-pink-200 to-pink-500">Milestones</span>
+            Experience & <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FF2A85] via-[#FF1744] to-[#E11D48] drop-shadow-[0_0_25px_rgba(255,42,133,0.55)]">Milestones</span>
           </h2>
           <p className="mt-2 text-gray-400 max-w-xl text-sm sm:text-base">
             Software internships, collegiate degree in Computer Science, official certifications, and community leadership.

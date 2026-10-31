@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Raw source inputs in root
+GungunGuptaResume.pdf.pdf
+my_image.PNG
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

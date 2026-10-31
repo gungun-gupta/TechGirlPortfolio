@@ -54,7 +54,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 href="/my-resume.pdf"
                 download="Gungun_Gupta_Resume.pdf"
                 onClick={handleDownload}
-                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-gradient-to-r from-pink-600 to-rose-600 text-white hover:brightness-110 active:scale-95 transition-all"
+                className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-gradient-to-r from-pink-600 via-rose-600 to-red-600 text-white shadow-[0_0_15px_rgba(255,42,133,0.35)] hover:shadow-[0_0_22px_rgba(255,42,133,0.6)] hover:brightness-110 active:scale-95 transition-all"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Download</span>

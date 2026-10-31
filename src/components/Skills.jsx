@@ -90,7 +90,7 @@ export const gungun: SoftwareEngineer = {
             <span>TECHNICAL COMPETENCIES</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Technical <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-pink-200 to-pink-500">Proficiency</span>
+            Technical <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FF2A85] via-[#FF1744] to-[#E11D48] drop-shadow-[0_0_25px_rgba(255,42,133,0.55)]">Proficiency</span>
           </h2>
           <p className="mt-2 text-gray-400 max-w-xl text-sm sm:text-base">
             Categorized technical stack spanning reactive frontend frameworks, backend APIs, vector embeddings, and core computing foundations.

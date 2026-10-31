@@ -20,7 +20,7 @@ export default function Projects() {
             <span>PORTFOLIO WORK</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Selected <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-pink-200 to-pink-500">Engineering Work</span>
+            Selected <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FF2A85] via-[#FF1744] to-[#E11D48] drop-shadow-[0_0_25px_rgba(255,42,133,0.55)]">Engineering Work</span>
           </h2>
           <p className="mt-2 text-gray-400 max-w-xl text-sm sm:text-base">
             Production systems, client web applications, and local AI engines built for high speed, reliability, and measurable outcomes.

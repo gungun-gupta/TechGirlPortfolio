@@ -71,7 +71,7 @@ export default function Contact() {
             <span>CONNECT</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Get In <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-pink-200 to-pink-500">Touch</span>
+            Get In <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FF2A85] via-[#FF1744] to-[#E11D48] drop-shadow-[0_0_25px_rgba(255,42,133,0.55)]">Touch</span>
           </h2>
           <p className="mt-2 text-gray-400 max-w-lg text-sm sm:text-base">
             Open to software engineering roles, full-stack development opportunities, and high-impact technical collaborations.
@@ -270,7 +270,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full mt-3 flex items-center justify-center space-x-2 py-2.5 px-4 rounded-lg text-xs font-medium text-white bg-gradient-to-r from-pink-600 to-rose-600 hover:brightness-110 active:scale-98 transition-all disabled:opacity-50"
+                    className="w-full mt-3 flex items-center justify-center space-x-2 py-2.5 px-4 rounded-lg text-xs font-semibold text-white bg-gradient-to-r from-pink-600 via-rose-600 to-red-600 shadow-[0_0_15px_rgba(255,42,133,0.35)] hover:shadow-[0_0_25px_rgba(255,42,133,0.6)] hover:brightness-110 active:scale-98 transition-all disabled:opacity-50"
                   >
                     {submitting ? (
                       <>

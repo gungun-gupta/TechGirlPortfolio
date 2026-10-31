@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowRight, 
   Github, 
@@ -10,18 +10,35 @@ import {
   Cpu, 
   Share2, 
   CheckCircle,
-  ExternalLink
+  ExternalLink,
+  SlidersHorizontal,
+  Maximize2,
+  X
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Hero({ onOpenResume }) {
-  const [avatarSrc, setAvatarSrc] = useState('/avatar.webp');
+  // Avatar mode: 'cyber' (tailored dark background with neon glow) or 'studio' (original studio lighting)
+  const [avatarMode, setAvatarMode] = useState('cyber');
+  const [avatarSrc, setAvatarSrc] = useState('/avatar.png');
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  const switchMode = (mode) => {
+    setAvatarMode(mode);
+    if (mode === 'cyber') {
+      setAvatarSrc('/avatar.png');
+    } else if (mode === 'studio') {
+      setAvatarSrc('/avatar-original.png');
+    } else {
+      setAvatarSrc('/avatar-transparent.png');
+    }
+  };
 
   const handleAvatarError = () => {
-    // Fallback to avatar.png or avatar.svg
-    if (avatarSrc === '/avatar.webp') {
-      setAvatarSrc('/avatar.png');
-    } else if (avatarSrc === '/avatar.png') {
+    // If customized version fails, fallback to original or vector
+    if (avatarSrc !== '/avatar-original.png' && avatarSrc !== '/my_image.png') {
+      setAvatarSrc('/avatar-original.png');
+    } else {
       setAvatarSrc('/avatar.svg');
     }
   };
@@ -167,43 +184,84 @@ export default function Hero({ onOpenResume }) {
               {/* Main Card Container */}
               <div className="relative rounded-2xl bg-[#0d0b13] border border-pink-500/40 p-4 sm:p-5 shadow-2xl backdrop-blur-xl overflow-hidden">
                 
-                {/* Subtle Cyber Corner Tech Markings */}
-                <div className="absolute top-2 left-3 text-[10px] font-mono text-pink-400/60 flex items-center space-x-1">
-                  <span>//</span>
-                  <span>ID: GUNGUN_GUPTA</span>
-                </div>
-                <div className="absolute top-2 right-3 text-[10px] font-mono text-emerald-400 flex items-center space-x-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                  <span>ONLINE</span>
+                {/* Cyber Header Bar with Controls */}
+                <div className="flex items-center justify-between pb-3 border-b border-pink-500/20 text-[11px] font-mono">
+                  <div className="flex items-center space-x-1.5 text-pink-400">
+                    <span className="text-pink-500 font-bold">//</span>
+                    <span className="text-gray-200 font-semibold">GUNGUN_GUPTA</span>
+                  </div>
+
+                  {/* Aesthetic Theme Switcher Pill */}
+                  <div className="flex items-center rounded-lg bg-dark-900/90 border border-white/10 p-0.5 text-[10px]">
+                    <button
+                      type="button"
+                      onClick={() => switchMode('cyber')}
+                      className={`px-2 py-0.5 rounded transition-all ${
+                        avatarMode === 'cyber'
+                          ? 'bg-gradient-to-r from-pink-600 to-rose-600 text-white font-semibold shadow-sm'
+                          : 'text-gray-400 hover:text-white'
+                      }`}
+                      title="Cyberpunk Dark Mode (Custom tailored dark background & rim glow)"
+                    >
+                      Cyber Glow
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => switchMode('studio')}
+                      className={`px-2 py-0.5 rounded transition-all ${
+                        avatarMode === 'studio'
+                          ? 'bg-gradient-to-r from-pink-600 to-rose-600 text-white font-semibold shadow-sm'
+                          : 'text-gray-400 hover:text-white'
+                      }`}
+                      title="Original Studio Portrait"
+                    >
+                      Studio
+                    </button>
+                  </div>
                 </div>
 
-                {/* Inner Image Container */}
-                <div className="relative mt-4 aspect-square rounded-xl overflow-hidden bg-[#121019] border border-pink-500/20 group-hover:border-pink-500/50 transition-colors">
+                {/* Inner Image Container with High-Tech Frame */}
+                <div className="relative mt-3 aspect-square rounded-xl overflow-hidden bg-[#070709] border border-pink-500/30 group-hover:border-pink-500/60 transition-colors shadow-inner">
                   <img
                     src={avatarSrc}
                     onError={handleAvatarError}
                     alt="Gungun Gupta - Software Engineer"
-                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-center transform group-hover:scale-[1.03] transition-transform duration-500"
                     loading="eager"
                   />
                   
                   {/* Subtle Scanline Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-pink-500/[0.04] to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-pink-500/[0.03] to-transparent pointer-events-none" />
 
                   {/* Corner Code Tag Top Left */}
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-dark-900/90 border border-pink-500/30 text-[11px] font-mono text-pink-300 backdrop-blur-md shadow-md">
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-dark-950/90 border border-pink-500/40 text-[11px] font-mono text-pink-300 backdrop-blur-md shadow-lg">
                     <code>&lt;FullStack /&gt;</code>
                   </div>
 
+                  {/* Corner Lightbox View Trigger Top Right */}
+                  <button
+                    onClick={() => setLightboxOpen(true)}
+                    className="absolute top-3 right-3 p-1.5 rounded-md bg-dark-950/80 border border-white/10 hover:border-pink-500/50 text-gray-400 hover:text-white backdrop-blur-md transition-colors"
+                    title="View Full High-Resolution Portrait"
+                  >
+                    <Maximize2 className="w-3.5 h-3.5" />
+                  </button>
+
                   {/* Corner Tag Bottom Right */}
-                  <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-dark-900/90 border border-pink-500/30 text-[11px] font-mono text-rose-300 backdrop-blur-md shadow-md flex items-center space-x-1.5">
+                  <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-dark-950/90 border border-pink-500/40 text-[11px] font-mono text-rose-300 backdrop-blur-md shadow-lg flex items-center space-x-1.5">
                     <Cpu className="w-3.5 h-3.5 text-neon-pink" />
                     <span>Applied AI</span>
+                  </div>
+
+                  {/* Online Badge Bottom Left */}
+                  <div className="absolute bottom-3 left-3 px-2 py-0.5 rounded-md bg-dark-950/90 border border-emerald-500/30 text-[10px] font-mono text-emerald-400 backdrop-blur-md flex items-center space-x-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>ONLINE</span>
                   </div>
                 </div>
 
                 {/* Floating Code Snippet Card below image */}
-                <div className="mt-4 p-3 rounded-xl bg-dark-900/90 border border-white/10 font-mono text-xs text-gray-300">
+                <div className="mt-3.5 p-3 rounded-xl bg-dark-900/95 border border-white/10 font-mono text-xs text-gray-300">
                   <div className="flex items-center justify-between pb-1.5 mb-1.5 border-b border-white/5 text-[11px] text-gray-500">
                     <div className="flex items-center space-x-1.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
@@ -233,6 +291,67 @@ export default function Hero({ onOpenResume }) {
 
         </div>
       </div>
+
+      {/* High-Resolution Portrait Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setLightboxOpen(false)}
+              className="fixed inset-0 bg-black/90 backdrop-blur-md"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="relative z-10 max-w-lg w-full rounded-2xl bg-[#0c0a13] border border-pink-500/40 p-4 shadow-2xl overflow-hidden"
+            >
+              <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10 font-mono text-xs text-gray-300">
+                <span>Gungun Gupta • High-Resolution Portrait</span>
+                <button
+                  onClick={() => setLightboxOpen(false)}
+                  className="p-1 rounded-lg text-gray-400 hover:text-white hover:bg-white/10"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="relative rounded-xl overflow-hidden bg-black border border-white/10 aspect-square">
+                <img
+                  src={avatarSrc}
+                  alt="Gungun Gupta Portrait"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+
+              <div className="mt-3 flex items-center justify-between text-xs font-mono text-gray-400">
+                <span>Mode: {avatarMode === 'cyber' ? 'Cyber Glow Edition' : 'Studio Natural'}</span>
+                <div className="flex space-x-2">
+                  <button
+                    onClick={() => switchMode('cyber')}
+                    className={`px-2.5 py-1 rounded text-[11px] ${
+                      avatarMode === 'cyber' ? 'bg-pink-600 text-white font-medium' : 'bg-dark-800 text-gray-400'
+                    }`}
+                  >
+                    Cyber
+                  </button>
+                  <button
+                    onClick={() => switchMode('studio')}
+                    className={`px-2.5 py-1 rounded text-[11px] ${
+                      avatarMode === 'studio' ? 'bg-pink-600 text-white font-medium' : 'bg-dark-800 text-gray-400'
+                    }`}
+                  >
+                    Studio
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

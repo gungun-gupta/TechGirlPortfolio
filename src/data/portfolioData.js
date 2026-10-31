@@ -4,7 +4,7 @@ export const personalInfo = {
   role: "Software Engineer",
   tagline: "Full-Stack Web Architect & Applied AI Engineer",
   status: "Available for opportunities",
-  pitch: "Computer Science engineer specializing in modern high-performance web applications (React, Next.js, FastAPI) and Applied AI (RAG, ChromaDB). Experienced in production ERP systems, microservices, and client platforms with top-tier SEO rankings.",
+  pitch: "I build high-performance web experiences, optimize them for search visibility, and explore AI to create smarter digital solutions.",
   location: "Durg / Bhilai, India",
   email: "gungungpta99@gmail.com",
   phone: "+91-8827510999",

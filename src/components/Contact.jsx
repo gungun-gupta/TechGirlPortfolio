@@ -9,9 +9,7 @@ import {
   Github, 
   Linkedin, 
   Share2, 
-  MessageSquare, 
-  Sparkles,
-  ExternalLink,
+  MessageSquare,
   MapPin
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -28,18 +26,18 @@ export default function Contact() {
     navigator.clipboard.writeText(personalInfo.email);
     setCopiedEmail(true);
     confetti({
-      particleCount: 50,
-      spread: 60,
+      particleCount: 40,
+      spread: 50,
       origin: { y: 0.8 },
-      colors: ['#FF2A85', '#FF1744', '#FFFFFF'],
+      colors: ['#FF2A85', '#FFFFFF'],
     });
-    setTimeout(() => setCopiedEmail(false), 2500);
+    setTimeout(() => setCopiedEmail(false), 2000);
   };
 
   const handleCopyPhone = () => {
     navigator.clipboard.writeText(personalInfo.phone);
     setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2500);
+    setTimeout(() => setCopiedPhone(false), 2000);
   };
 
   const handleSubmit = (e) => {
@@ -50,56 +48,55 @@ export default function Contact() {
       setSubmitting(false);
       setSubmitted(true);
       confetti({
-        particleCount: 100,
-        spread: 70,
+        particleCount: 60,
+        spread: 60,
         origin: { y: 0.7 },
-        colors: ['#FF2A85', '#FF1744', '#38BDF8'],
+        colors: ['#FF2A85', '#E11D48', '#FFFFFF'],
       });
       setTimeout(() => {
         setSubmitted(false);
         setFormState({ name: '', email: '', message: '' });
-      }, 5000);
-    }, 800);
+      }, 4000);
+    }, 600);
   };
 
   return (
-    <section id="contact" className="relative py-24 border-t border-white/5 overflow-hidden">
+    <section id="contact" className="relative py-20 border-t border-white/[0.08] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/30 text-neon-pink text-xs font-mono mb-3">
+        <div className="flex flex-col items-center text-center mb-12">
+          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-pink-400 text-xs font-mono mb-2.5">
             <MessageSquare className="w-3.5 h-3.5" />
-            <span>START A CONVERSATION</span>
+            <span>CONNECT</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Get In <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-rose-500 to-red-500">Touch</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Get In <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-pink-200 to-pink-500">Touch</span>
           </h2>
-          <p className="mt-4 text-gray-400 max-w-xl text-sm sm:text-base">
+          <p className="mt-2 text-gray-400 max-w-lg text-sm sm:text-base">
             Open to software engineering roles, full-stack development opportunities, and high-impact technical collaborations.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* Left Column: Direct Contact Info & Cards */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+          {/* Left Column: Direct Contact Info */}
+          <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
             
-            {/* Quick Contact Cards */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               
               {/* Email Card with 1-Click Copy */}
-              <div className="group relative p-5 rounded-2xl bg-[#0b0912] border border-pink-500/30 hover:border-pink-500/60 transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,42,133,0.25)]">
+              <div className="p-4 rounded-xl bg-[#08080c] border border-white/[0.08] hover:border-pink-500/30 transition-all">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3.5">
-                    <div className="p-3 rounded-xl bg-pink-500/10 border border-pink-500/30 text-neon-pink">
-                      <Mail className="w-5 h-5" />
+                  <div className="flex items-center space-x-3">
+                    <div className="p-2.5 rounded-lg bg-white/[0.03] border border-white/10 text-pink-400">
+                      <Mail className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-xs font-mono text-gray-400">Direct Email</div>
+                      <div className="text-[11px] font-mono text-gray-400">Direct Email</div>
                       <a 
                         href={`mailto:${personalInfo.email}`}
-                        className="text-white font-medium text-sm sm:text-base hover:text-pink-300 transition-colors"
+                        className="text-white font-medium text-sm hover:text-pink-300 transition-colors"
                       >
                         {personalInfo.email}
                       </a>
@@ -108,26 +105,26 @@ export default function Contact() {
 
                   <button
                     onClick={handleCopyEmail}
-                    className="p-2 rounded-lg bg-dark-800 hover:bg-pink-500/20 text-gray-400 hover:text-neon-pink border border-white/10 hover:border-pink-500/30 transition-all"
+                    className="p-1.5 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-gray-400 hover:text-white border border-white/10 transition-all"
                     title="Copy Email Address"
                   >
-                    {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                    {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
                 </div>
               </div>
 
-              {/* Phone Card with 1-Click Copy */}
-              <div className="group relative p-5 rounded-2xl bg-[#0b0912] border border-pink-500/30 hover:border-pink-500/60 transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,42,133,0.25)]">
+              {/* Phone Card */}
+              <div className="p-4 rounded-xl bg-[#08080c] border border-white/[0.08] hover:border-pink-500/30 transition-all">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3.5">
-                    <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-neon-crimson">
-                      <Phone className="w-5 h-5" />
+                  <div className="flex items-center space-x-3">
+                    <div className="p-2.5 rounded-lg bg-white/[0.03] border border-white/10 text-pink-400">
+                      <Phone className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-xs font-mono text-gray-400">Phone / WhatsApp</div>
+                      <div className="text-[11px] font-mono text-gray-400">Phone / WhatsApp</div>
                       <a 
                         href={`tel:${personalInfo.phone.replace(/[^0-9+]/g, '')}`}
-                        className="text-white font-medium text-sm sm:text-base hover:text-rose-300 transition-colors"
+                        className="text-white font-medium text-sm hover:text-pink-300 transition-colors"
                       >
                         {personalInfo.phone}
                       </a>
@@ -136,23 +133,23 @@ export default function Contact() {
 
                   <button
                     onClick={handleCopyPhone}
-                    className="p-2 rounded-lg bg-dark-800 hover:bg-rose-500/20 text-gray-400 hover:text-neon-crimson border border-white/10 hover:border-rose-500/30 transition-all"
+                    className="p-1.5 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-gray-400 hover:text-white border border-white/10 transition-all"
                     title="Copy Phone Number"
                   >
-                    {copiedPhone ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                    {copiedPhone ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
                 </div>
               </div>
 
               {/* Location Card */}
-              <div className="p-5 rounded-2xl bg-[#0b0912] border border-white/10">
-                <div className="flex items-center space-x-3.5">
-                  <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400">
-                    <MapPin className="w-5 h-5" />
+              <div className="p-4 rounded-xl bg-[#08080c] border border-white/[0.08]">
+                <div className="flex items-center space-x-3">
+                  <div className="p-2.5 rounded-lg bg-white/[0.03] border border-white/10 text-gray-400">
+                    <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-gray-400">Location Base</div>
-                    <div className="text-white font-medium text-sm sm:text-base">
+                    <div className="text-[11px] font-mono text-gray-400">Location Base</div>
+                    <div className="text-white font-medium text-xs sm:text-sm">
                       {personalInfo.location} (Open to Relocation & Remote)
                     </div>
                   </div>
@@ -163,35 +160,35 @@ export default function Contact() {
 
             {/* Social Grid */}
             <div className="pt-2">
-              <div className="text-xs font-mono text-gray-400 mb-3 uppercase tracking-wider">
+              <div className="text-[11px] font-mono text-gray-400 mb-2 uppercase tracking-wider">
                 External Developer Networks
               </div>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-2">
                 <a
                   href={personalInfo.socials.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center space-x-2 py-3 rounded-xl bg-dark-850 border border-white/10 hover:border-pink-500/50 hover:bg-dark-800 text-gray-300 hover:text-white transition-all hover:shadow-[0_0_15px_rgba(255,42,133,0.3)] text-xs font-medium"
+                  className="flex items-center justify-center space-x-1.5 py-2.5 rounded-lg bg-[#08080c] border border-white/[0.08] hover:border-pink-500/30 text-gray-300 hover:text-white transition-all text-xs"
                 >
-                  <Github className="w-4 h-4" />
+                  <Github className="w-3.5 h-3.5" />
                   <span>GitHub</span>
                 </a>
                 <a
                   href={personalInfo.socials.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center space-x-2 py-3 rounded-xl bg-dark-850 border border-white/10 hover:border-pink-500/50 hover:bg-dark-800 text-gray-300 hover:text-white transition-all hover:shadow-[0_0_15px_rgba(255,42,133,0.3)] text-xs font-medium"
+                  className="flex items-center justify-center space-x-1.5 py-2.5 rounded-lg bg-[#08080c] border border-white/[0.08] hover:border-pink-500/30 text-gray-300 hover:text-white transition-all text-xs"
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="w-3.5 h-3.5" />
                   <span>LinkedIn</span>
                 </a>
                 <a
                   href={personalInfo.socials.linktree}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center space-x-2 py-3 rounded-xl bg-dark-850 border border-white/10 hover:border-pink-500/50 hover:bg-dark-800 text-gray-300 hover:text-white transition-all hover:shadow-[0_0_15px_rgba(255,42,133,0.3)] text-xs font-medium"
+                  className="flex items-center justify-center space-x-1.5 py-2.5 rounded-lg bg-[#08080c] border border-white/[0.08] hover:border-pink-500/30 text-gray-300 hover:text-white transition-all text-xs"
                 >
-                  <Share2 className="w-4 h-4" />
+                  <Share2 className="w-3.5 h-3.5" />
                   <span>Linktree</span>
                 </a>
               </div>
@@ -201,38 +198,34 @@ export default function Contact() {
 
           {/* Right Column: Direct Message Dispatch Form */}
           <div className="lg:col-span-7">
-            <div className="h-full rounded-2xl bg-[#09080e] border border-pink-500/30 p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden">
+            <div className="h-full rounded-xl bg-[#08080c] border border-white/[0.08] p-5 sm:p-6 flex flex-col justify-between shadow-lg">
               
               {/* Form Window Header */}
-              <div className="flex items-center justify-between pb-4 mb-6 border-b border-white/5 font-mono text-xs text-gray-400">
-                <div className="flex items-center space-x-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                  <span className="text-gray-300 ml-2">transmit_message.sh</span>
+              <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/[0.06] font-mono text-xs text-gray-400">
+                <div className="flex items-center space-x-1.5">
+                  <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                  <span className="w-2 h-2 rounded-full bg-yellow-500/80" />
+                  <span className="w-2 h-2 rounded-full bg-green-500/80" />
+                  <span className="text-gray-300 ml-1.5 text-[11px]">message.sh</span>
                 </div>
-                <span className="text-neon-pink">SSL ENCRYPTED</span>
+                <span className="text-pink-400 text-[10px]">DIRECT CHANNEL</span>
               </div>
 
               {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="py-12 flex flex-col items-center text-center space-y-4"
-                >
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 flex items-center justify-center shadow-[0_0_30px_rgba(16,185,129,0.3)]">
-                    <Check className="w-8 h-8" />
+                <div className="py-8 flex flex-col items-center text-center space-y-3">
+                  <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
+                    <Check className="w-6 h-6" />
                   </div>
-                  <h4 className="text-2xl font-bold text-white">Transmission Received</h4>
-                  <p className="text-gray-400 max-w-md text-sm">
+                  <h4 className="text-lg font-bold text-white">Transmission Sent</h4>
+                  <p className="text-gray-400 max-w-sm text-xs">
                     Thank you! Your dispatch has been logged. Gungun will review your message and reply via email shortly.
                   </p>
-                </motion.div>
+                </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4 flex-1 flex flex-col justify-between">
-                  <div className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-3.5 flex-1 flex flex-col justify-between">
+                  <div className="space-y-3">
                     <div>
-                      <label className="block text-xs font-mono text-gray-400 mb-1.5">
+                      <label className="block text-[11px] font-mono text-gray-400 mb-1">
                         YOUR NAME / ORGANIZATION
                       </label>
                       <input
@@ -240,13 +233,13 @@ export default function Contact() {
                         required
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                        placeholder="e.g. Alex Mercer (Google / Stripe)"
-                        className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all font-sans text-sm"
+                        placeholder="e.g. Alex Mercer"
+                        className="w-full px-3.5 py-2 rounded-lg bg-[#0d0d12] border border-white/[0.08] text-white placeholder-gray-600 focus:outline-none focus:border-pink-500/50 text-xs font-sans"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-mono text-gray-400 mb-1.5">
+                      <label className="block text-[11px] font-mono text-gray-400 mb-1">
                         RETURN EMAIL ADDRESS
                       </label>
                       <input
@@ -255,21 +248,21 @@ export default function Contact() {
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                         placeholder="e.g. alex@company.com"
-                        className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all font-sans text-sm"
+                        className="w-full px-3.5 py-2 rounded-lg bg-[#0d0d12] border border-white/[0.08] text-white placeholder-gray-600 focus:outline-none focus:border-pink-500/50 text-xs font-sans"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-mono text-gray-400 mb-1.5">
+                      <label className="block text-[11px] font-mono text-gray-400 mb-1">
                         MESSAGE & INQUIRY
                       </label>
                       <textarea
-                        rows={4}
+                        rows={3}
                         required
                         value={formState.message}
                         onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                        placeholder="Describe your role opportunity, project scope, or technical query..."
-                        className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all font-sans text-sm resize-none"
+                        placeholder="Describe your role opportunity or project inquiry..."
+                        className="w-full px-3.5 py-2 rounded-lg bg-[#0d0d12] border border-white/[0.08] text-white placeholder-gray-600 focus:outline-none focus:border-pink-500/50 text-xs font-sans resize-none"
                       />
                     </div>
                   </div>
@@ -277,17 +270,17 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full mt-4 flex items-center justify-center space-x-2 py-3.5 px-6 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-pink-600 via-rose-600 to-red-600 shadow-lg shadow-pink-600/30 hover:brightness-110 active:scale-98 transition-all disabled:opacity-50"
+                    className="w-full mt-3 flex items-center justify-center space-x-2 py-2.5 px-4 rounded-lg text-xs font-medium text-white bg-gradient-to-r from-pink-600 to-rose-600 hover:brightness-110 active:scale-98 transition-all disabled:opacity-50"
                   >
                     {submitting ? (
                       <>
-                        <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                         <span>Transmitting...</span>
                       </>
                     ) : (
                       <>
                         <span>Dispatch Message</span>
-                        <Send className="w-4 h-4" />
+                        <Send className="w-3.5 h-3.5" />
                       </>
                     )}
                   </button>

@@ -13,7 +13,7 @@ export default function App() {
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-[#070709] text-gray-100 selection:bg-pink-500 selection:text-white font-sans antialiased overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#040406] text-gray-100 selection:bg-pink-500 selection:text-white font-sans antialiased overflow-x-hidden">
       {/* Pitch-black ambient glowing backgrounds & subtle cyber grid */}
       <BackgroundEffects />
 
@@ -40,3 +40,4 @@ export default function App() {
     </div>
   );
 }
+

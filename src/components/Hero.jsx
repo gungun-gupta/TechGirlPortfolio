@@ -25,11 +25,11 @@ export default function Hero({ onOpenResume }) {
 
   return (
     <section id="about" className="relative min-h-[88vh] flex items-center pt-28 pb-16 overflow-hidden">
-      {/* Normalized SVG Clip-Path for Elongated Rounded Hexagon Badge */}
+      {/* Normalized SVG Clip-Path for Broader, Balanced Rounded Hexagon Badge */}
       <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true">
         <defs>
           <clipPath id="hexagon-badge-clip" clipPathUnits="objectBoundingBox">
-            <path d="M 0.44 0.035 Q 0.50 0.012, 0.56 0.035 L 0.91 0.215 Q 0.96 0.24, 0.96 0.285 L 0.96 0.715 Q 0.96 0.76, 0.91 0.785 L 0.56 0.965 Q 0.50 0.988, 0.44 0.965 L 0.09 0.785 Q 0.04 0.76, 0.04 0.715 L 0.04 0.285 Q 0.04 0.24, 0.09 0.215 Z" />
+            <path d="M 0.44 0.046 Q 0.50 0.014, 0.56 0.046 L 0.895 0.197 Q 0.94 0.22, 0.94 0.27 L 0.94 0.73 Q 0.94 0.78, 0.895 0.803 L 0.56 0.954 Q 0.50 0.986, 0.44 0.954 L 0.105 0.803 Q 0.06 0.78, 0.06 0.73 L 0.06 0.27 Q 0.06 0.22, 0.105 0.197 Z" />
           </clipPath>
         </defs>
       </svg>
@@ -142,8 +142,8 @@ export default function Hero({ onOpenResume }) {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 flex flex-col items-center justify-center"
           >
-            {/* Hexagon Frame Container */}
-            <div className="relative w-full max-w-[320px] sm:max-w-[340px] aspect-[320/380] flex items-center justify-center">
+            {/* Hexagon Frame Container: Increased in width and reduced in height */}
+            <div className="relative w-full max-w-[360px] sm:max-w-[385px] aspect-[360/345] flex items-center justify-center">
               
               {/* Outer Glow matching accent */}
               <div 
@@ -169,7 +169,7 @@ export default function Hero({ onOpenResume }) {
                   }}
                 >
                   
-                  {/* FRONT FACE: Illustrated Avatar */}
+                  {/* FRONT FACE: Illustrated Avatar (Zoomed out with generous headroom & breathing space) */}
                   <div 
                     className="absolute inset-0 w-full h-full"
                     style={{
@@ -179,23 +179,18 @@ export default function Hero({ onOpenResume }) {
                       clipPath: 'url(#hexagon-badge-clip)',
                     }}
                   >
-                    <div className="relative w-full h-full bg-[#0a0812]">
+                    <div className="relative w-full h-full bg-[#07070a] flex items-center justify-center overflow-hidden">
                       <img
                         src="/avatar-illustrated.png"
                         onError={(e) => { e.currentTarget.src = '/avatar.png'; }}
                         alt="Gungun Gupta - 3D Illustrated Avatar"
-                        className="w-full h-full object-cover object-center transform group-hover:scale-[1.03] transition-transform duration-500"
+                        className="w-full h-full object-cover object-center scale-[0.84] transform group-hover:scale-[0.87] transition-transform duration-500"
                         loading="eager"
                       />
-                      
-                      {/* Subtle front corner tag */}
-                      <div className="absolute top-10 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono text-pink-300 backdrop-blur-md">
-                        <span>AVATAR // 01</span>
-                      </div>
                     </div>
                   </div>
 
-                  {/* BACK FACE: Real Photograph */}
+                  {/* BACK FACE: Real Photograph (Zoomed out with generous headroom & breathing space) */}
                   <div 
                     className="absolute inset-0 w-full h-full"
                     style={{
@@ -205,28 +200,23 @@ export default function Hero({ onOpenResume }) {
                       clipPath: 'url(#hexagon-badge-clip)',
                     }}
                   >
-                    <div className="relative w-full h-full bg-[#08080c]">
+                    <div className="relative w-full h-full bg-[#07070a] flex items-center justify-center overflow-hidden">
                       <img
                         src="/avatar-real.png"
                         onError={(e) => { e.currentTarget.src = '/avatar-original.png'; }}
                         alt="Gungun Gupta - Real Photograph"
-                        className="w-full h-full object-cover object-center transform group-hover:scale-[1.03] transition-transform duration-500"
+                        className="w-full h-full object-cover object-center scale-[0.84] transform group-hover:scale-[0.87] transition-transform duration-500"
                         loading="eager"
                       />
-
-                      {/* Subtle back corner tag */}
-                      <div className="absolute top-10 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono text-emerald-300 backdrop-blur-md">
-                        <span>REAL PHOTO // 02</span>
-                      </div>
                     </div>
                   </div>
 
                 </div>
 
                 {/* PERSISTENT DUAL-LAYERED GEOMETRIC HEXAGONAL FRAME OVERLAY */}
-                {/* Stays completely intact, sharp and visible during and after the 3D flip! */}
+                {/* Broader border outline with distinct decorative bracket notches */}
                 <svg 
-                  viewBox="0 0 320 380" 
+                  viewBox="0 0 360 345" 
                   className="absolute inset-0 w-full h-full pointer-events-none z-20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -239,45 +229,45 @@ export default function Hero({ onOpenResume }) {
                     </linearGradient>
                   </defs>
 
-                  {/* LAYER 1 (Inner): Continuous 1px subtle dark border hugging the hexagon */}
+                  {/* LAYER 1 (Inner): Continuous 1.5px subtle dark border hugging the hexagon */}
                   <path 
-                    d="M 141 13 Q 160 5, 179 13 L 291 82 Q 307 91, 307 108 L 307 272 Q 307 289, 291 298 L 179 367 Q 160 375, 141 367 L 29 298 Q 13 289, 13 272 L 13 108 Q 13 91, 29 82 Z"
-                    stroke="rgba(255, 255, 255, 0.12)"
-                    strokeWidth="1.2"
+                    d="M 158 16 Q 180 5, 202 16 L 322 69 Q 338 77, 338 95 L 338 250 Q 338 268, 322 276 L 202 329 Q 180 340, 158 329 L 38 276 Q 22 268, 22 250 L 22 95 Q 22 77, 38 69 Z"
+                    stroke="rgba(255, 255, 255, 0.15)"
+                    strokeWidth="1.5"
                   />
 
-                  {/* LAYER 2 (Outer Accent): Futuristic Neon Stroke with Decorative Left & Right Notch Gaps */}
-                  {/* Top Bracket Outline (covers top apex, shoulders, stops at y=168) */}
+                  {/* LAYER 2 (Outer Accent): Broader 3.5px Futuristic Neon Stroke with Decorative Notch Cuts */}
+                  {/* Top Bracket Outline (from y=145 up, around top apex, down to y=145) */}
                   <path 
-                    d="M 13 165 L 13 108 Q 13 91, 29 82 L 141 13 Q 160 5, 179 13 L 291 82 Q 307 91, 307 108 L 307 165"
+                    d="M 22 145 L 22 95 Q 22 77, 38 69 L 158 16 Q 180 5, 202 16 L 322 69 Q 338 77, 338 95 L 338 145"
                     stroke="url(#neonAccentGrad)"
-                    strokeWidth="2"
+                    strokeWidth="3.5"
                     strokeLinecap="round"
-                    className="drop-shadow-[0_0_8px_rgba(255,42,133,0.4)]"
+                    className="drop-shadow-[0_0_10px_rgba(255,42,133,0.45)]"
                   />
 
-                  {/* Bottom Bracket Outline (starts at y=215, covers bottom hips and bottom apex) */}
+                  {/* Bottom Bracket Outline (from y=200 down, around bottom apex, up to y=200) */}
                   <path 
-                    d="M 307 215 L 307 272 Q 307 289, 291 298 L 179 367 Q 160 375, 141 367 L 29 298 Q 13 289, 13 272 L 13 215"
+                    d="M 338 200 L 338 250 Q 338 268, 322 276 L 202 329 Q 180 340, 158 329 L 38 276 Q 22 268, 22 250 L 22 200"
                     stroke="url(#neonAccentGrad)"
-                    strokeWidth="2"
+                    strokeWidth="3.5"
                     strokeLinecap="round"
-                    className="drop-shadow-[0_0_8px_rgba(255,42,133,0.4)]"
+                    className="drop-shadow-[0_0_10px_rgba(255,42,133,0.45)]"
                   />
 
-                  {/* Left Edge Decorative Notch Gap Accents */}
-                  <line x1="8" y1="190" x2="18" y2="190" stroke="#FF2A85" strokeWidth="2" strokeLinecap="round" />
-                  <circle cx="13" cy="178" r="1.5" fill="#FF2A85" />
-                  <circle cx="13" cy="202" r="1.5" fill="#FF2A85" />
+                  {/* Left Edge Decorative Notch Gap Accents (Broader & Sharper) */}
+                  <line x1="15" y1="172" x2="29" y2="172" stroke="#FF2A85" strokeWidth="3.5" strokeLinecap="round" />
+                  <circle cx="22" cy="158" r="2.5" fill="#FF2A85" />
+                  <circle cx="22" cy="186" r="2.5" fill="#FF2A85" />
 
-                  {/* Right Edge Decorative Notch Gap Accents */}
-                  <line x1="302" y1="190" x2="312" y2="190" stroke="#FF1744" strokeWidth="2" strokeLinecap="round" />
-                  <circle cx="307" cy="178" r="1.5" fill="#FF1744" />
-                  <circle cx="307" cy="202" r="1.5" fill="#FF1744" />
+                  {/* Right Edge Decorative Notch Gap Accents (Broader & Sharper) */}
+                  <line x1="331" y1="172" x2="345" y2="172" stroke="#FF1744" strokeWidth="3.5" strokeLinecap="round" />
+                  <circle cx="338" cy="158" r="2.5" fill="#FF1744" />
+                  <circle cx="338" cy="186" r="2.5" fill="#FF1744" />
 
-                  {/* Corner Tech Marks */}
-                  <path d="M 155 4 L 165 4" stroke="#FFF" strokeWidth="1.5" opacity="0.4" />
-                  <path d="M 155 376 L 165 376" stroke="#FFF" strokeWidth="1.5" opacity="0.4" />
+                  {/* Apex High-Tech Tick Marks */}
+                  <line x1="172" y1="5" x2="188" y2="5" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
+                  <line x1="172" y1="340" x2="188" y2="340" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
                 </svg>
 
                 {/* Subtle Lightbox Zoom Button on the corner */}

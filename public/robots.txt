@@ -1,0 +1,6 @@
+# Robots.txt for Gungun Gupta Portfolio
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://gungun-gupta.vercel.app/sitemap.xml

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F0814" />
+      <stop offset="50%" stop-color="#0A0A0E" />
+      <stop offset="100%" stop-color="#140610" />
+    </linearGradient>
+    <linearGradient id="neonPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF2A85" />
+      <stop offset="100%" stop-color="#FF1744" />
+    </linearGradient>
+    <linearGradient id="cyberCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#818CF8" />
+    </linearGradient>
+    <radialGradient id="glowSpot" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#FF2A85" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#FF2A85" stop-opacity="0" />
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background base -->
+  <rect width="400" height="400" rx="24" fill="url(#bgGrad)" />
+  <circle cx="200" cy="170" r="140" fill="url(#glowSpot)" />
+
+  <!-- Background cyber grid lines inside avatar -->
+  <path d="M 50 100 H 350 M 50 160 H 350 M 50 220 H 350 M 50 280 H 350" stroke="#FF2A85" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M 120 50 V 350 M 200 50 V 350 M 280 50 V 350" stroke="#FF2A85" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="4 4" />
+
+  <!-- Hacker / Dev silhouette with hoodie & headset -->
+  <!-- Shoulders & Hoodie -->
+  <path d="M 70 370 C 70 310, 120 280, 160 270 L 175 295 L 200 315 L 225 295 L 240 270 C 280 280, 330 310, 330 370 Z" fill="#13131c" stroke="#FF2A85" stroke-width="2" stroke-opacity="0.5" />
+  <path d="M 175 295 L 200 350 L 225 295" stroke="url(#neonPink)" stroke-width="2" fill="none" />
+
+  <!-- Neck -->
+  <rect x="180" y="240" width="40" height="35" rx="6" fill="#1e1829" />
+
+  <!-- Head / Face -->
+  <path d="M 140 180 C 140 120, 260 120, 260 180 C 260 230, 230 255, 200 255 C 170 255, 140 230, 140 180 Z" fill="#251a33" />
+  
+  <!-- Cyber Hair / Sleek Cut -->
+  <path d="M 135 170 C 130 110, 170 80, 200 80 C 240 80, 270 105, 265 170 C 255 130, 230 110, 200 110 C 170 110, 145 130, 135 170 Z" fill="#FF2A85" opacity="0.9" filter="url(#glow)" />
+  <path d="M 150 115 Q 185 85 245 105" stroke="#FFF" stroke-width="2" fill="none" opacity="0.6" />
+
+  <!-- Cyber Visor / High-tech Glasses -->
+  <rect x="155" y="165" width="90" height="24" rx="6" fill="#0A0A12" stroke="url(#neonPink)" stroke-width="2" filter="url(#glow)" />
+  <!-- Visor Neon HUD readout line -->
+  <line x1="165" y1="177" x2="235" y2="177" stroke="#38BDF8" stroke-width="2" stroke-dasharray="12 4 4 4" />
+  
+  <!-- Headphones / Cyber Headset -->
+  <path d="M 130 175 C 130 115, 270 115, 270 175" stroke="#FF1744" stroke-width="4" fill="none" opacity="0.7" />
+  <!-- Ear cups -->
+  <rect x="125" y="165" width="16" height="36" rx="6" fill="#FF2A85" filter="url(#glow)" />
+  <rect x="259" y="165" width="16" height="36" rx="6" fill="#FF2A85" filter="url(#glow)" />
+  <circle cx="133" cy="183" r="4" fill="#FFF" />
+  <circle cx="267" cy="183" r="4" fill="#FFF" />
+
+  <!-- Code snippet badge floating at corner -->
+  <g transform="translate(45, 60)">
+    <rect width="115" height="32" rx="8" fill="#09090D" stroke="#FF2A85" stroke-width="1" stroke-opacity="0.6" />
+    <text x="12" y="21" font-family="JetBrains Mono, monospace" font-size="11" fill="#FF2A85" font-weight="bold">&lt;dev&gt;</text>
+    <text x="56" y="21" font-family="JetBrains Mono, monospace" font-size="11" fill="#38BDF8">FullStack</text>
+  </g>
+
+  <!-- Sparkles / Stars -->
+  <path d="M 330 90 L 333 100 L 343 103 L 333 106 L 330 116 L 327 106 L 317 103 L 327 100 Z" fill="#FF2A85" filter="url(#glow)" />
+  <path d="M 60 220 L 62 226 L 68 228 L 62 230 L 60 236 L 58 230 L 52 228 L 58 226 Z" fill="#38BDF8" opacity="0.8" />
+  
+  <!-- Status dot -->
+  <circle cx="340" cy="340" r="8" fill="#10B981" filter="url(#glow)" />
+  <circle cx="340" cy="340" r="14" stroke="#10B981" stroke-width="1.5" stroke-dasharray="3 3" fill="none" opacity="0.7" />
+</svg>

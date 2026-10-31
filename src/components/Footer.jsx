@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
             <div className="flex items-center space-x-2 text-white font-bold text-sm">
               <span className="text-neon-pink">&lt;/&gt;</span>
-              <span>gungun.dev</span>
+              <span>gungun</span>
             </div>
             <span className="hidden sm:inline text-gray-600">|</span>
             <p className="text-gray-400">
@@ -44,3 +44,4 @@ export default function Footer() {
     </footer>
   );
 }
+

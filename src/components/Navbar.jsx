@@ -61,8 +61,7 @@ export default function Navbar({ onOpenResume }) {
             </div>
             <div className="flex items-center">
               <span className="text-white group-hover:text-pink-100 transition-colors">gungun</span>
-              <span className="text-neon-pink group-hover:text-neon-crimson transition-colors">.dev</span>
-              <span className="ml-1 inline-block w-1.5 h-4 bg-neon-pink/80 animate-pulse" />
+              <span className="ml-1.5 inline-block w-1.5 h-4 bg-neon-pink/80 animate-pulse" />
             </div>
           </a>
 
@@ -162,3 +161,4 @@ export default function Navbar({ onOpenResume }) {
     </header>
   );
 }
+

@@ -18,26 +18,27 @@ import {
 import { personalInfo } from '../data/portfolioData';
 
 export default function Hero({ onOpenResume }) {
-  // Avatar mode: 'cyber' (tailored dark background with neon glow) or 'studio' (original studio lighting)
-  const [avatarMode, setAvatarMode] = useState('cyber');
-  const [avatarSrc, setAvatarSrc] = useState('/avatar.png');
+  // Avatar mode: 'illustrated' (default), 'cyber' (cyber suit), 'photo' (custom real photo), 'studio' (original raw photo)
+  const [avatarMode, setAvatarMode] = useState('illustrated');
+  const [avatarSrc, setAvatarSrc] = useState('/avatar-illustrated.png');
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   const switchMode = (mode) => {
     setAvatarMode(mode);
-    if (mode === 'cyber') {
-      setAvatarSrc('/avatar.png');
+    if (mode === 'illustrated') {
+      setAvatarSrc('/avatar-illustrated.png');
+    } else if (mode === 'cyber') {
+      setAvatarSrc('/avatar-art.png');
+    } else if (mode === 'photo') {
+      setAvatarSrc('/avatar-real.png');
     } else if (mode === 'studio') {
       setAvatarSrc('/avatar-original.png');
-    } else {
-      setAvatarSrc('/avatar-transparent.png');
     }
   };
 
   const handleAvatarError = () => {
-    // If customized version fails, fallback to original or vector
-    if (avatarSrc !== '/avatar-original.png' && avatarSrc !== '/my_image.png') {
-      setAvatarSrc('/avatar-original.png');
+    if (avatarSrc !== '/avatar-real.png' && avatarSrc !== '/avatar-original.png') {
+      setAvatarSrc('/avatar-real.png');
     } else {
       setAvatarSrc('/avatar.svg');
     }
@@ -55,15 +56,6 @@ export default function Hero({ onOpenResume }) {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 flex flex-col justify-center text-left space-y-6"
           >
-            {/* Status Pill Badge */}
-            <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 text-xs sm:text-sm font-mono w-fit backdrop-blur-sm shadow-[0_0_15px_rgba(16,185,129,0.15)]">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-              </span>
-              <span className="tracking-wide">{personalInfo.status}</span>
-            </div>
-
             {/* Main Headline */}
             <div className="space-y-2">
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-sans leading-[1.08]">
@@ -188,11 +180,23 @@ export default function Hero({ onOpenResume }) {
                 <div className="flex items-center justify-between pb-3 border-b border-pink-500/20 text-[11px] font-mono">
                   <div className="flex items-center space-x-1.5 text-pink-400">
                     <span className="text-pink-500 font-bold">//</span>
-                    <span className="text-gray-200 font-semibold">GUNGUN_GUPTA</span>
+                    <span className="text-gray-200 font-semibold">GUNGUN</span>
                   </div>
 
-                  {/* Aesthetic Theme Switcher Pill */}
+                  {/* Multi-Option Style Switcher */}
                   <div className="flex items-center rounded-lg bg-dark-900/90 border border-white/10 p-0.5 text-[10px]">
+                    <button
+                      type="button"
+                      onClick={() => switchMode('illustrated')}
+                      className={`px-2 py-0.5 rounded transition-all ${
+                        avatarMode === 'illustrated'
+                          ? 'bg-gradient-to-r from-pink-600 to-rose-600 text-white font-semibold shadow-sm'
+                          : 'text-gray-400 hover:text-white'
+                      }`}
+                      title="Illustrated Developer Avatar"
+                    >
+                      Avatar
+                    </button>
                     <button
                       type="button"
                       onClick={() => switchMode('cyber')}
@@ -201,14 +205,26 @@ export default function Hero({ onOpenResume }) {
                           ? 'bg-gradient-to-r from-pink-600 to-rose-600 text-white font-semibold shadow-sm'
                           : 'text-gray-400 hover:text-white'
                       }`}
-                      title="Cyberpunk Dark Mode (Custom tailored dark background & rim glow)"
+                      title="Cyberpunk Tech-Suit Avatar"
                     >
-                      Cyber Glow
+                      Cyber
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => switchMode('photo')}
+                      className={`px-2 py-0.5 rounded transition-all ${
+                        avatarMode === 'photo'
+                          ? 'bg-gradient-to-r from-pink-600 to-rose-600 text-white font-semibold shadow-sm'
+                          : 'text-gray-400 hover:text-white'
+                      }`}
+                      title="Original Photo with Cyber Lighting"
+                    >
+                      Photo
                     </button>
                     <button
                       type="button"
                       onClick={() => switchMode('studio')}
-                      className={`px-2 py-0.5 rounded transition-all ${
+                      className={`px-1.5 py-0.5 rounded transition-all ${
                         avatarMode === 'studio'
                           ? 'bg-gradient-to-r from-pink-600 to-rose-600 text-white font-semibold shadow-sm'
                           : 'text-gray-400 hover:text-white'
@@ -253,10 +269,10 @@ export default function Hero({ onOpenResume }) {
                     <span>Applied AI</span>
                   </div>
 
-                  {/* Online Badge Bottom Left */}
-                  <div className="absolute bottom-3 left-3 px-2 py-0.5 rounded-md bg-dark-950/90 border border-emerald-500/30 text-[10px] font-mono text-emerald-400 backdrop-blur-md flex items-center space-x-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>ONLINE</span>
+                  {/* Tech Tag Bottom Left */}
+                  <div className="absolute bottom-3 left-3 px-2 py-0.5 rounded-md bg-dark-950/90 border border-pink-500/30 text-[10px] font-mono text-pink-300 backdrop-blur-md flex items-center space-x-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-neon-pink animate-pulse" />
+                    <span>DEV</span>
                   </div>
                 </div>
 
@@ -310,7 +326,7 @@ export default function Hero({ onOpenResume }) {
               className="relative z-10 max-w-lg w-full rounded-2xl bg-[#0c0a13] border border-pink-500/40 p-4 shadow-2xl overflow-hidden"
             >
               <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10 font-mono text-xs text-gray-300">
-                <span>Gungun Gupta • High-Resolution Portrait</span>
+                <span>Gungun Gupta • Portrait Preview</span>
                 <button
                   onClick={() => setLightboxOpen(false)}
                   className="p-1 rounded-lg text-gray-400 hover:text-white hover:bg-white/10"
@@ -328,19 +344,35 @@ export default function Hero({ onOpenResume }) {
               </div>
 
               <div className="mt-3 flex items-center justify-between text-xs font-mono text-gray-400">
-                <span>Mode: {avatarMode === 'cyber' ? 'Cyber Glow Edition' : 'Studio Natural'}</span>
-                <div className="flex space-x-2">
+                <span>Mode: {avatarMode}</span>
+                <div className="flex space-x-1.5">
+                  <button
+                    onClick={() => switchMode('illustrated')}
+                    className={`px-2 py-0.5 rounded text-[11px] ${
+                      avatarMode === 'illustrated' ? 'bg-pink-600 text-white font-medium' : 'bg-dark-800 text-gray-400'
+                    }`}
+                  >
+                    Avatar
+                  </button>
                   <button
                     onClick={() => switchMode('cyber')}
-                    className={`px-2.5 py-1 rounded text-[11px] ${
+                    className={`px-2 py-0.5 rounded text-[11px] ${
                       avatarMode === 'cyber' ? 'bg-pink-600 text-white font-medium' : 'bg-dark-800 text-gray-400'
                     }`}
                   >
                     Cyber
                   </button>
                   <button
+                    onClick={() => switchMode('photo')}
+                    className={`px-2 py-0.5 rounded text-[11px] ${
+                      avatarMode === 'photo' ? 'bg-pink-600 text-white font-medium' : 'bg-dark-800 text-gray-400'
+                    }`}
+                  >
+                    Photo
+                  </button>
+                  <button
                     onClick={() => switchMode('studio')}
-                    className={`px-2.5 py-1 rounded text-[11px] ${
+                    className={`px-2 py-0.5 rounded text-[11px] ${
                       avatarMode === 'studio' ? 'bg-pink-600 text-white font-medium' : 'bg-dark-800 text-gray-400'
                     }`}
                   >

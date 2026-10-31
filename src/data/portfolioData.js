@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Gungun Gupta",
-  handle: "gungun.dev",
+  handle: "gungun",
   role: "Software Engineer",
   tagline: "Full-Stack Web Architect & Applied AI Engineer",
   status: "Available for opportunities",
@@ -229,3 +229,4 @@ export const leadershipData = [
     desc: "Engaged in national policy debates and public speaking forums representing collegiate youth.",
   },
 ];
+

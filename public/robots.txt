@@ -1,7 +1,30 @@
 # Robots.txt for Gungun Gupta Portfolio
+# Technical SEO & LLM Knowledge Graph Directive
+
 User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://gungun-gupta.vercel.app/sitemap.xml
+# Explicit LLM & Search Crawlers
+User-agent: Googlebot
+Allow: /
 
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+Sitemap: https://gungungupta.vercel.app/sitemap.xml

@@ -10,8 +10,8 @@
     <meta name="description" content="Official portfolio of Gungun Gupta, Software Engineer. Specializing in high-performance web applications, backend systems, and modern architectures." />
     <meta name="keywords" content="Gungun Gupta, Software Engineer, Full Stack Developer, React, Next.js, FastAPI, Python, Tailwind CSS, ChromaDB, RAG, Web Development, Frontend Engineer, Portfolio" />
     <meta name="author" content="Gungun Gupta" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://gungun-gupta.vercel.app/" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://gungungupta.vercel.app/" />
 
     <!-- Favicon & Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -20,36 +20,38 @@
     <meta name="theme-color" content="#070709" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://gungun-gupta.vercel.app/" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://gungungupta.vercel.app/" />
     <meta property="og:title" content="Gungun Gupta | Software Engineer" />
     <meta property="og:description" content="Official portfolio of Gungun Gupta, Software Engineer. Specializing in high-performance web applications, backend systems, and modern architectures." />
-    <meta property="og:image" content="https://gungun-gupta.vercel.app/avatar.png" />
+    <meta property="og:image" content="https://gungungupta.vercel.app/avatar.png" />
     <meta property="og:site_name" content="Gungun Gupta Portfolio" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://gungun-gupta.vercel.app/" />
+    <meta property="twitter:url" content="https://gungungupta.vercel.app/" />
     <meta property="twitter:title" content="Gungun Gupta | Software Engineer" />
     <meta property="twitter:description" content="Official portfolio of Gungun Gupta, Software Engineer. Specializing in high-performance web applications, backend systems, and modern architectures." />
-    <meta property="twitter:image" content="https://gungun-gupta.vercel.app/avatar.png" />
+    <meta property="twitter:image" content="https://gungungupta.vercel.app/avatar.png" />
 
     <!-- Google Fonts Preconnect & Load -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <!-- JSON-LD Structured Data for Search Engines -->
+    <!-- JSON-LD Structured Data for Search Engines & LLM Knowledge Graph -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "Person",
-          "@id": "https://gungun-gupta.vercel.app/#person",
+          "@id": "https://gungungupta.vercel.app/#person",
           "name": "Gungun Gupta",
+          "alternateName": ["Gungun", "gungun.dev"],
           "jobTitle": "Software Engineer",
-          "url": "https://gungun-gupta.vercel.app",
+          "url": "https://gungungupta.vercel.app",
+          "image": "https://gungungupta.vercel.app/avatar.png",
           "email": "mailto:gungungpta99@gmail.com",
           "telephone": "+918827510999",
           "address": {
@@ -81,12 +83,27 @@
         },
         {
           "@type": "WebSite",
-          "@id": "https://gungun-gupta.vercel.app/#website",
-          "url": "https://gungun-gupta.vercel.app",
+          "@id": "https://gungungupta.vercel.app/#website",
+          "url": "https://gungungupta.vercel.app",
           "name": "Gungun Gupta | Software Engineer Portfolio",
           "description": "Portfolio of Gungun Gupta, showcasing software engineering projects, technical skills, and experience.",
           "author": {
-            "@id": "https://gungun-gupta.vercel.app/#person"
+            "@id": "https://gungungupta.vercel.app/#person"
+          }
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://gungungupta.vercel.app/#webpage",
+          "url": "https://gungungupta.vercel.app",
+          "name": "Gungun Gupta | Software Engineer",
+          "isPartOf": {
+            "@id": "https://gungungupta.vercel.app/#website"
+          },
+          "about": {
+            "@id": "https://gungungupta.vercel.app/#person"
+          },
+          "mainEntity": {
+            "@id": "https://gungungupta.vercel.app/#person"
           }
         }
       ]

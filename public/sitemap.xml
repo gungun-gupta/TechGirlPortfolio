@@ -4,44 +4,44 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://gungun-gupta.vercel.app/</loc>
+    <loc>https://gungungupta.vercel.app/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://gungun-gupta.vercel.app/#about</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://gungungupta.vercel.app/#about</loc>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gungun-gupta.vercel.app/#skills</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://gungungupta.vercel.app/#skills</loc>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gungun-gupta.vercel.app/#projects</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://gungungupta.vercel.app/#projects</loc>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gungun-gupta.vercel.app/#experience</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://gungungupta.vercel.app/#experience</loc>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gungun-gupta.vercel.app/#contact</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://gungungupta.vercel.app/#contact</loc>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gungun-gupta.vercel.app/my-resume.pdf</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://gungungupta.vercel.app/my-resume.pdf</loc>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

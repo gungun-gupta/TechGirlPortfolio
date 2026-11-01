@@ -14,7 +14,7 @@ import {
 
 export default function ShareModal({ isOpen, onClose }) {
   const [copied, setCopied] = useState(false);
-  const shareUrl = typeof window !== 'undefined' ? window.location.href : 'https://gungun-gupta.vercel.app';
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : 'https://gungungupta.vercel.app';
   const shareTitle = 'Gungun Gupta | Software Engineer';
   const shareText = "Check out Gungun Gupta's Software Engineer Portfolio - high-performance web applications & modern architectures:";
 

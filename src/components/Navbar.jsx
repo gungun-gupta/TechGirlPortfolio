@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Terminal, FileDown, Sparkles } from 'lucide-react';
+import { Menu, X, Terminal, FileDown } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Navbar({ onOpenResume }) {
@@ -96,7 +96,6 @@ export default function Navbar({ onOpenResume }) {
             >
               <FileDown className="w-4 h-4 text-white group-hover:translate-y-0.5 transition-transform" />
               <span className="font-mono tracking-tight font-bold">Resume (PDF)</span>
-              <Sparkles className="w-3.5 h-3.5 text-pink-200 opacity-80 group-hover:opacity-100 group-hover:rotate-12 transition-all" />
             </button>
           </div>
 

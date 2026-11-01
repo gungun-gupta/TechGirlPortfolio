@@ -15,12 +15,13 @@ import {
 import confetti from 'canvas-confetti';
 import { personalInfo } from '../data/portfolioData';
 
-export default function Contact() {
+export default function Contact({ onOpenShare }) {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(personalInfo.email);
@@ -40,24 +41,48 @@ export default function Contact() {
     setTimeout(() => setCopiedPhone(false), 2000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
+    setErrorMessage('');
 
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
-      confetti({
-        particleCount: 60,
-        spread: 60,
-        origin: { y: 0.7 },
-        colors: ['#FF2A85', '#E11D48', '#FFFFFF'],
+    try {
+      const response = await fetch('https://formspree.io/f/manbzgqv', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+          _subject: `New Portfolio Message from ${formState.name}`
+        })
       });
-      setTimeout(() => {
-        setSubmitted(false);
-        setFormState({ name: '', email: '', message: '' });
-      }, 4000);
-    }, 600);
+
+      if (response.ok) {
+        setSubmitting(false);
+        setSubmitted(true);
+        confetti({
+          particleCount: 60,
+          spread: 60,
+          origin: { y: 0.7 },
+          colors: ['#FF2A85', '#E11D48', '#FFFFFF'],
+        });
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormState({ name: '', email: '', message: '' });
+        }, 5000);
+      } else {
+        const data = await response.json().catch(() => ({}));
+        setSubmitting(false);
+        setErrorMessage(data?.errors?.[0]?.message || 'Failed to transmit message. Please email directly or try again.');
+      }
+    } catch (err) {
+      setSubmitting(false);
+      setErrorMessage('Network error. Please email directly or try again.');
+    }
   };
 
   return (
@@ -182,15 +207,15 @@ export default function Contact() {
                   <Linkedin className="w-3.5 h-3.5" />
                   <span>LinkedIn</span>
                 </a>
-                <a
-                  href={personalInfo.socials.linktree}
-                  target="_blank"
-                  rel="noreferrer"
+                <button
+                  type="button"
+                  onClick={onOpenShare}
                   className="flex items-center justify-center space-x-1.5 py-2.5 rounded-lg bg-[#08080c] border border-white/[0.08] hover:border-pink-500/30 text-gray-300 hover:text-white transition-all text-xs"
+                  title="Share Portfolio"
                 >
                   <Share2 className="w-3.5 h-3.5" />
-                  <span>Linktree</span>
-                </a>
+                  <span>Share</span>
+                </button>
               </div>
             </div>
 
@@ -224,12 +249,18 @@ export default function Contact() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-3.5 flex-1 flex flex-col justify-between">
                   <div className="space-y-3">
+                    {errorMessage && (
+                      <div className="p-3 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-mono">
+                        {errorMessage}
+                      </div>
+                    )}
                     <div>
                       <label className="block text-[11px] font-mono text-gray-400 mb-1">
                         YOUR NAME / ORGANIZATION
                       </label>
                       <input
                         type="text"
+                        name="name"
                         required
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -244,6 +275,7 @@ export default function Contact() {
                       </label>
                       <input
                         type="email"
+                        name="email"
                         required
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
@@ -257,6 +289,7 @@ export default function Contact() {
                         MESSAGE & INQUIRY
                       </label>
                       <textarea
+                        name="message"
                         rows={3}
                         required
                         value={formState.message}

@@ -61,9 +61,13 @@
     background: rgba(15, 13, 20, 0.95);
   }
   .cyber-grid-bg {
-    background-size: 48px 48px;
+    background-size: 56px 56px;
     background-image: 
-      linear-gradient(to right, rgba(255, 42, 133, 0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 42, 133, 0.035) 1px, transparent 1px);
+      linear-gradient(to right, rgba(255, 42, 133, 0.075) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 42, 133, 0.075) 1px, transparent 1px);
+  }
+  .cyber-dots-bg {
+    background-size: 56px 56px;
+    background-image: radial-gradient(circle, rgba(255, 42, 133, 0.18) 1.2px, transparent 1.2px);
   }
 }

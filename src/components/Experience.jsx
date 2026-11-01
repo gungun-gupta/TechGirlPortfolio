@@ -206,21 +206,6 @@ export default function Experience() {
               </div>
             </div>
 
-            {/* Resume Callout Card */}
-            <div className="p-4 rounded-xl bg-[#08080c] border border-white/10 text-center space-y-2.5">
-              <h4 className="text-white font-semibold text-sm">Download Verified Resume</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                Need the complete curriculum vitae in standard PDF format for applicant tracking systems?
-              </p>
-              <a
-                href="/my-resume.pdf"
-                download="Gungun_Gupta_Resume.pdf"
-                className="inline-flex items-center justify-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium bg-gradient-to-r from-pink-600 to-rose-600 text-white hover:brightness-110 active:scale-95 transition-all"
-              >
-                <span>Download GungunGuptaResume.pdf</span>
-              </a>
-            </div>
-
           </div>
 
         </div>

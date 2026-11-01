@@ -5,7 +5,7 @@ export const personalInfo = {
   tagline: "Full-Stack Web Architect & Applied AI Engineer",
   status: "Available for opportunities",
   pitch: "I build high-performance web experiences, optimize them for search visibility, and explore AI to create smarter digital solutions.",
-  location: "Durg / Bhilai, India",
+  location: "Raipur, Chhattisgarh",
   email: "gungungpta99@gmail.com",
   phone: "+91-8827510999",
   resumePath: "/my-resume.pdf",

@@ -8,9 +8,11 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
+import ShareModal from './components/ShareModal';
 
 export default function App() {
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
+  const [shareModalOpen, setShareModalOpen] = useState(false);
 
   return (
     <div className="relative min-h-screen bg-[#040406] text-gray-100 selection:bg-pink-500 selection:text-white font-sans antialiased overflow-x-hidden">
@@ -22,11 +24,14 @@ export default function App() {
         <Navbar onOpenResume={() => setResumeModalOpen(true)} />
         
         <main className="flex-1">
-          <Hero onOpenResume={() => setResumeModalOpen(true)} />
+          <Hero 
+            onOpenResume={() => setResumeModalOpen(true)} 
+            onOpenShare={() => setShareModalOpen(true)}
+          />
           <Skills />
           <Projects />
           <Experience />
-          <Contact />
+          <Contact onOpenShare={() => setShareModalOpen(true)} />
         </main>
 
         <Footer />
@@ -36,6 +41,12 @@ export default function App() {
       <ResumeModal
         isOpen={resumeModalOpen}
         onClose={() => setResumeModalOpen(false)}
+      />
+
+      {/* Interactive Share Portfolio Modal */}
+      <ShareModal
+        isOpen={shareModalOpen}
+        onClose={() => setShareModalOpen(false)}
       />
     </div>
   );

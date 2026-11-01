@@ -21,12 +21,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* System status pill */}
-          <div className="flex items-center space-x-2 px-3 py-1 rounded-full bg-white/[0.02] border border-white/[0.06] text-[11px] text-gray-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-            <span>Systems Nominal • SPA Vercel Optimized</span>
-          </div>
-
           {/* Scroll to Top */}
           <button
             onClick={scrollToTop}
